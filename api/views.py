@@ -1,13 +1,8 @@
-from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
 
+@api_view(['GET'])
 def handshake(request):
-    if(request.method == 'GET'):
-        return JsonResponse({
-            "Backend": "Handshake response working"
-        })
-        
-    return JsonResponse({
-        "Backend": "HTTP Method Not Allowed"
-    })
+    return Response({ "Backend": "Handshake response working!!" })
